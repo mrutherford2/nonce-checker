@@ -1,2 +1,19 @@
 # nonce-checker
 Nonce checker for interview eval 
+
+## Sample Output
+For instance, if the nonce.txt file contained the following values
+
+2ae5a140-gg3e-2124-caa8-e0501121da55 - 2020-05-04 10:29:00.454545
+47e52163-9893-4971-a3ad-647ec7e4dde1 - 2020-05-04 10:29:30.654321
+2ae5a140-gg3e-2124-caa8-e0501121da55 - 2020-05-04 10:30:00.111111
+eb725b00-feb8-11ec-b939-0242ac120002 - 2020-05-04 10:34:15.565656
+2ae5a140-gg3e-2124-caa8-e0501121da55 - 2020-05-04 10:35:00.111111
+47e52163-9893-4971-a3ad-647ec7e4dde1 - 2020-05-04 10:35:00.123456
+eb725b00-feb8-11ec-b939-0242ac120002 - 2020-05-04 10:36:00.333333
+
+Then the expected output would be:
+
+Duplicate nonce: 2ae5a140-gg3e-2124-caa8-e0501121da55: current time 2020-05-04 10:30:00.111111 last used 2020-05-04 10:29:00.454545
+Duplicate nonce: 2ae5a140-gg3e-2124-caa8-e0501121da55: current time 2020-05-04 10:35:00.111111 last used 2020-05-04 10:30:00.111111
+Duplicate nonce: eb725b00-feb8-11ec-b939-0242ac120002: current time 2020-05-04 10:36:00.333333 last used 2020-05-04 10:34:15.565656
