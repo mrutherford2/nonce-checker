@@ -2,16 +2,17 @@
 using Microsoft.Extensions.Logging;
 using System.Reflection;
 
-//Store list of nonces in a dictionary so lookup time is O(1) and space is O(n) where n is the number of unique nonces in the text file 
-var nonceList = new Dictionary<Guid, DateTime>();
+//Adds console logger
 var serviceProvider = new ServiceCollection()
     .AddLogging((loggingBuilder) => loggingBuilder
         .SetMinimumLevel(LogLevel.Trace)
         .AddConsole()
         )
     .BuildServiceProvider();
-
 var logger = serviceProvider.GetService<ILoggerFactory>().CreateLogger<Program>();
+
+//Store list of nonces in a dictionary so lookup time is O(1) and space is O(n) where n is the number of unique nonces in the text file 
+var nonceList = new Dictionary<Guid, DateTime>();
 
 try
 {
